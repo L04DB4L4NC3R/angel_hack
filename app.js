@@ -22,7 +22,7 @@ app.post("/",(req,res,next)=>{
     console.log(req.body);
     res.json({message:`Hello ${req.body.name} your age is ${req.body.age}`});
 });
-app.use("/user",require("./routes/user"));
+app.use("/geo",require("./routes/geo"));
 // Routes
 
 
