@@ -14,9 +14,8 @@ const {
  * }
  */
 
-router.post("/upload/files",(req,res,next)=>{
-    console.log(req.body)
-    var uploads = multer({dest:`./uploads/${req.body.name}`}).fields([{name:"file",maxCount:10}]);
+router.post("/upload/files/:name",(req,res,next)=>{
+    var uploads = multer({dest:`./uploads/${req.params.name}`}).fields([{name:"file",maxCount:10}]);
 
     uploads(req,res,(err)=>{
         if(err)
