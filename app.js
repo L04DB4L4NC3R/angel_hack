@@ -18,9 +18,10 @@ app.use(require("morgan")('dev'));
 // Routes
 
 app.use('/seller',require("./routes/seller"));
-app.get("/",(req,res,next)=>{
-    res.json({message:"Hello world",massage:"Hello boy!"});
+app.post("/",(req,res,next)=>{
+    res.json([{message:`Hello ${req.body.name} your age is ${req.body.age}`}]);
 });
+app.use("/user",require("./routes/user"));
 // Routes
 
 

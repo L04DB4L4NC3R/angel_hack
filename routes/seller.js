@@ -38,10 +38,10 @@ router.post("/add",async (req,res,next)=>{
    
     if(!seller){
        let newProp = await createProperty(req.body);
-       res.json(newProp);
+       res.json([newProp]);
    } else{
        let dataa = await updateProperty({name:req.body.name},{$push:{property:req.body.data}});
-       res.json(dataa);
+       res.json([dataa]);
    }
 
 });
@@ -60,8 +60,13 @@ router.get("/fetch",async (req,res,next)=>{
         for(j of i.property)
             points.push(j.location);
     }
-    res.json({points});
+    res.json([{points}]);
 
-})
+});
+
+
+
+
 
 module.exports = router;
+
