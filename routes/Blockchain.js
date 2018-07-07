@@ -35,8 +35,8 @@ const {
         bl.readSheet(auth)
         .then((data)=>{
             if(!data[0].index){
-                let arr = [genesisInit()];
-                bl.updateSheet(auth,arr)
+                let arr = genesisInit();
+                bl.updateSheet(auth,[[arr.name,arr.contact,arr.email,arr.location,arr.description,arr.address,arr.user]])
                 .then(c=>res.json(arr))
                 .catch(next);
             } else{
@@ -44,7 +44,7 @@ const {
 
                 if(!validateChain(arr,data[data.length-1]))
                     return res.json({message:"Error validating blockchain"});
-                bl.updateSheet(auth,[arr])
+                bl.updateSheet(auth,[[arr.name,arr.contact,arr.email,arr.location,arr.description,arr.address,arr.user]])
                 .then((c)=>res.json(arr))
                 .catch(next);
             }
