@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const verify=require('../helpers/cache_request');
-const client=require('../config/redis_config');
+//const client=require('../config/redis_config');
 const {
     createProperty,
     getProperty,
@@ -29,18 +29,18 @@ const {
     //TODO use redis here
     let props = await getProperties(req.params.place);
     //setting cache
-    //looping through array for creating pusing it
-    for(var property of props){
-    var arr=["name",property['name'],'contact',property['contact'],
-    "email",property['email'],"location",["lat",property["location"]["lat"],
-    "long",property["location"]["long"]],
-    "description",property["description"],
-    "address",property["address"]];
-  }
-  //TODO  to use hmset fucntion to set
-    client.hmset(req.params.place,arr,(err,result)=>{
-        res.json(props);
-    });
+//     //looping through array for creating pusing it
+//     for(var property of props){
+//     var arr=["name",property['name'],'contact',property['contact'],
+//     "email",property['email'],"location",["lat",property["location"]["lat"],
+//     "long",property["location"]["long"]],
+//     "description",property["description"],
+//     "address",property["address"]];
+//   }
+//   //TODO  to use hmset fucntion to set
+//     client.hmset(req.params.place,arr,(err,result)=>{
+//         res.json(props);
+//     });
 
  });
 
