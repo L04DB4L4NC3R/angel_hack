@@ -18,8 +18,8 @@ app.use(require("morgan")('dev'));
 // Routes
 
 app.use('/seller',require("./routes/seller"));
-app.get("/",(req,res,next)=>{
-    res.json([{message:"angad"}]);
+app.post("/",(req,res,next)=>{
+    res.json([{message:"Hello"}]);
 });
 // Routes
 
