@@ -19,10 +19,15 @@ app.use(require("morgan")('dev'));
 // Routes
 
 app.use('/seller',require("./routes/seller"));
+
+app.get('/',(req,res,next)=>{
+    res.json({message:"hello"});
+})
 app.post("/",(req,res,next)=>{
     console.log(req.body);
     res.json({message:`Hello ${req.body.name} your age is ${req.body.age}`});
 });
+
 app.use("/geo",require("./routes/geo"));
 app.use('/seller',require('./routes/uploading'));
 // Routes
