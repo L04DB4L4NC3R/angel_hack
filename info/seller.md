@@ -1,6 +1,10 @@
-const mongoose = require("mongoose");
+## Seller schema
+---
 
-const seller_schema = new mongoose.Schema({
+<br />
+
+```
+{
     name:String,
     contact:String,
     email:String,
@@ -13,6 +17,5 @@ const seller_schema = new mongoose.Schema({
         description:String,
         address:String
     }
-});
-
-const seller_model = mongoose.model("seller",seller_schema);
+}
+```
