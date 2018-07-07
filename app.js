@@ -19,7 +19,7 @@ app.use(require("morgan")('dev'));
 
 app.use('/seller',require("./routes/seller"));
 app.get("/",(req,res,next)=>{
-    res.json({message:"Hello world",massage:"Hello boy!"});
+    res.json([{message:"angad"}]);
 });
 // Routes
 
