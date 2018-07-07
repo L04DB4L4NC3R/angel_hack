@@ -29,10 +29,12 @@ request("https://api.nestoria.in/api?encoding=json&pretty=1&action=search_listin
 
 
 
-module.exports.weather = (place)=>{
+module.exports.getWeather = (place)=>{
   return new Promise((resolve,reject)=>{
     request("http://samples.openweathermap.org/data/2.5/history/city?q="+place+"&appid=b1b15e88fa797225412429c1c50c122a1")
-    .then(d=>resolve(d))
+    .then((d)=>{
+      resolve(d.body)
+    })
     .catch(err=>reject(err));
   });
 }

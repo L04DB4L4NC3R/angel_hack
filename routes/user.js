@@ -8,7 +8,8 @@ const {
 } = require("../schema/schema");
 
 const {
-    getProperties
+    getProperties,
+    getWeather
 } = require("../helpers/Search");
 
 
@@ -24,9 +25,10 @@ const {
 
  router.post("/search",async (req,res,next)=>{
     let props = await getProperties(req.body.place);
-    
 
-    res.json(props.points);
+    let weather = await getWeather(req.body.place);
+
+    res.json(weather);
  });
 
 
