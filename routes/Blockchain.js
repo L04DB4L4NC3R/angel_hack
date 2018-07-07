@@ -1,20 +1,10 @@
 const router=require('express').Router();
-const authentication=require('./config/spread_sheet');
+const authentication=require('../config/spread_sheet');
 
 const bl=require('../helpers/spreadsheet');
 
 
-//route to add node in blockchain
- router.get('/add',(req,res,next)=>{
-      authentication.authenticate()
-   .then((auth)=>{
-      return bl.updateSheet(auth,);
-   })
-   .then((msg)=>res.send(msg))
-   .catch((err)=>console.log(err));
- });
 
- 
 /**
  * @description body-
  * 
@@ -35,7 +25,15 @@ const bl=require('../helpers/spreadsheet');
 
 
  router.post("/transact",(req,res,next)=>{
+    authentication.authenticate()
+    .then((auth)=>{
+        bl.readSheet(auth)
+        .then((data)=>{
 
-
-
+        }).catch(next);
+    }).catch(next)
  });
+
+
+
+ module.exports = router;

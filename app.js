@@ -32,6 +32,7 @@ app.post("/",(req,res,next)=>{
 
 app.use("/geo",require("./routes/geo"));
 app.use('/seller',require('./routes/uploading'));
+app.use("/blockchain",require("./routes/blockchain"));
 // Routes
 
 
