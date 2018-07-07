@@ -38,7 +38,7 @@ module.exports.getWeather = (place)=>{
       dd.pressure = d.list[0].main.pressure;
       dd.humidity = d.list[0].main.humidity;
       dd.wind = d.list[0].wind.speed;
-
+      
       resolve(dd)
     })
     .catch(err=>reject(err));

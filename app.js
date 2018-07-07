@@ -1,6 +1,8 @@
 const express = require("express");
 const bp = require("body-parser");
 
+require('./helpers/spreadsheet.js');
+
 require("dotenv").config();
 
 const mongoose = require("mongoose");
