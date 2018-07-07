@@ -3,6 +3,11 @@ const authentication=require('../config/spread_sheet');
 
 const bl=require('../helpers/spreadsheet');
 
+const {
+    genesisInit,
+    createBlock,
+    validateChain
+} = require("../helpers/blockchain");
 
 
 /**
@@ -29,7 +34,17 @@ const bl=require('../helpers/spreadsheet');
     .then((auth)=>{
         bl.readSheet(auth)
         .then((data)=>{
-            res.send(data)
+            if(!data[0].index){
+                let arr = [genesisInit()];
+                bl.updateSheet(auth,arr)
+                .then(c=>res.json(arr))
+                .catch(next);
+            } else{
+                let arr = createBlock(req.body,new Date.getTime()/1000,data[data.length-1]);
+                bl.updateSheet(auth,[arr])
+                .then((c)=>res.json(arr))
+                .catch(next);
+            }
         }).catch(next);
     }).catch(next)
  });

@@ -21,14 +21,14 @@ var calcHash = (index,previousHash,data,timestamp)=>{
 
 
 
-exports.genesisInit = (chain)=>{
+exports.genesisInit = ()=>{
     return new Block(0,"GENESIS PREVIOUS HASH",new Date.getTime()/1000,calcHash(0,"PH","GD",new Date.getTime()/1000),"GD")
 }
 
 
 
 
-exports.createBlock = (index,data,timestamp,latestBlock)=>{
+exports.createBlock = (data,timestamp,latestBlock)=>{
 
     let thisIndex = latestBlock.index+1;
 
