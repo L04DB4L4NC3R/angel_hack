@@ -71,6 +71,15 @@ in the blockchain
 
 <br />
 
+* Google maps 
 
+* Google geolocation
 
+* Real estate API
+
+* Govt of india soil fertility
+
+* Govt of india weather
+
+* Govt of india air pollution 
 
