@@ -29,17 +29,20 @@ const {
     //TODO use redis here
     let props = await getProperties(req.params.place);
     //setting cache
+    //looping through array for creating pusing it
     for(var property of props){
     var arr=["name",property['name'],'contact',property['contact'],
-    "email",property['email'],"location",["lat",property["location"]["lat"],"long",property["location"]["long"]],"description",property["description"],"address",property["address"]];
+    "email",property['email'],"location",["lat",property["location"]["lat"],
+    "long",property["location"]["long"]],
+    "description",property["description"],
+    "address",property["address"]];
   }
+  //TODO  to use hmset fucntion to set
     client.hmset(req.params.place,arr,(err,result)=>{
         res.json(props);
     });
 
  });
-
-
 
 
  router.get("/search/weather/:place",async (req,res,next)=>{
