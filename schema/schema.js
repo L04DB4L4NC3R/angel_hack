@@ -27,7 +27,11 @@ exports.createProperty = (data)=>{
                 name:data.name,
                contact:data.contact,
                email:data.email,
-               property:[data.data]
+               property:[{
+                   location:data.location,
+                   description:data.description,
+                   address:data.address
+               }]
         });
 
         obj.save()
