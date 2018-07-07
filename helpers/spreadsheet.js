@@ -10,7 +10,7 @@ function readSheet(auth){
     sheets.spreadsheets.values.get({
       auth: auth,
       spreadsheetId: '1e27OIX-r0NyMUkckjPxu9n62DvHSIRE7nEgcW2sZWw0',
-      range: 'Sheet1!A:F' //Change Sheet1 if your worksheet's name is something else
+      range: 'Sheet1' //Change Sheet1 if your worksheet's name is something else
     }, (err, response) => {
       if (err) {
           reject(err);

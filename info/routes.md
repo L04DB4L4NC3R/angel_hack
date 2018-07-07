@@ -13,3 +13,4 @@
 | /geo/search/place/{place}| GET place| response shown in place.md |
 | /seller/upload/files/{username} | POST {files:Array of files} | filedata JSON (see files.md) |
 | /seller/upload/delete/{username} | GET | {message:"Deleted"} |
+| /geo/both/{place} | GET | {place:[seller object type],weather:Weather Object type} |

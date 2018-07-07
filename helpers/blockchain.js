@@ -14,7 +14,7 @@ class Block{
 
 
 var calcHash = (index,previousHash,data,timestamp)=>{
-    return crypto.createHmac('sha256',process.env.SALT)
+    return crypto.createHmac('sha256',parseInt(process.env.SALT) )
     .update(index.toString()+previousHash+timestamp+data)
     .digest('hex');
 }

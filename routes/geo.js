@@ -51,4 +51,14 @@ const {
     res.json({weather});
  });
 
+
+
+
+ router.get("/both/:place",async (req,res,next)=>{
+    let props = await getProperties(req.params.place);
+    let weather = await getWeather(req.params.place);
+    res.json({place:props,weather});
+ });
+
+
  module.exports = router;

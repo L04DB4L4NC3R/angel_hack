@@ -32,12 +32,12 @@ module.exports.getWeather = (place)=>{
     .then((data)=>{
       let d = JSON.parse(data.body);
       let dd = {};
-      dd.temp_min = d.list[0].main.temp_min.toString();
-      dd.temp_max = d.list[0].main.temp_max.toString();
-      dd.sea_level = d.list[0].main.sea_level.toString();
-      dd.pressure = d.list[0].main.pressure.toString();
-      dd.humidity = d.list[0].main.humidity.toString();
-      dd.wind = d.list[0].wind.speed.toString();
+      dd.temp_min = d.list[0].main.temp_min;
+      dd.temp_max = d.list[0].main.temp_max;
+      dd.sea_level = d.list[0].main.sea_level;
+      dd.pressure = d.list[0].main.pressure;
+      dd.humidity = d.list[0].main.humidity;
+      dd.wind = d.list[0].wind.speed;
 
       resolve(dd)
     })
