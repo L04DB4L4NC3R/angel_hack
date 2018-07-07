@@ -31,7 +31,7 @@ const {
 
 
 router.post("/add",async (req,res,next)=>{
-   let seller = getProperty({name:req.body.name});
+   let seller = await getProperty({name:req.body.name});
    
     if(!seller){
        let newProp = await createProperty(req.body);
