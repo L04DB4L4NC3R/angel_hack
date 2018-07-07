@@ -21,6 +21,5 @@ request("https://api.nestoria.in/api?encoding=json&pretty=1&action=search_listin
 
 });
 }
-getProperties('gurgaon').then((res)=>console.log(res)).catch((err)=>console.log(err));
 
 module.exports=getProperties;
