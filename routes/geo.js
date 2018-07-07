@@ -23,10 +23,10 @@ const {
  * }
  */
 
- router.post("/search/place",async (req,res,next)=>{
+ router.get("/search/place/:place",async (req,res,next)=>{
 
     //TODO use redis here
-    let props = await getProperties(req.body.place);
+    let props = await getProperties(req.params.place);
 
     res.json(props);
  });
@@ -34,8 +34,8 @@ const {
 
 
 
- router.post("/search/weather",async (req,res,next)=>{
-    let weather = await getWeather(req.body.place);
+ router.get("/search/weather/:place",async (req,res,next)=>{
+    let weather = await getWeather(req.params.place);
     res.json({weather});
  });
 
