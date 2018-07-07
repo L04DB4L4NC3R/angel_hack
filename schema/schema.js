@@ -5,14 +5,55 @@ const seller_schema = new mongoose.Schema({
     contact:String,
     email:String,
     
-    property:{
+    property:[{
         location:{
             lat:Number,
             lng:Number
         },
         description:String,
         address:String
-    }
+    }]
 });
 
 const seller_model = mongoose.model("seller",seller_schema);
+
+
+
+
+exports.createProperty = (data)=>{
+    return new Promise((resolve,reject)=>{
+        seller_model.create(data)
+        .then(d=>resolve(d))
+        .catch(err=>reject(err))
+    });
+}
+
+
+
+exports.getProperty = (query)=>{
+    return new Promise((resolve,reject)=>{
+        seller_model.find(query)
+        .then(d=>resolve(d))
+        .catch(err=>reject(err));
+    });
+}
+
+
+
+exports.updateProperty = (query,update)=>{
+    return new Promise((resolve,reject)=>{
+        seller_model.update(query,update)
+        .then(d=>resolve(d))
+        .catch(err=>reject(err));
+    })
+}
+
+
+
+exports.deleteProperty = (id)=>{
+    return new Promise((resolve,reject)=>{
+        seller_model.findOneAndRemove({_id:id})
+        .then(d=>resolve(d))
+        .catch(err=>reject(err));
+    })
+}

@@ -9,13 +9,13 @@
     contact:String,
     email:String,
     
-    property:{
+    property:[{
         location:{
             lat:Number,
             lng:Number
         },
         description:String,
         address:String
-    }
+    }]
 }
 ```
