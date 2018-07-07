@@ -8,7 +8,8 @@ const {
 } = require("../schema/schema");
 
 const {
-    getProperties
+    getProperties,
+    getWeather
 } = require("../helpers/Search");
 
 
@@ -22,10 +23,20 @@ const {
  * }
  */
 
- router.post("/search",async (req,res,next)=>{
+ router.post("/search/place",async (req,res,next)=>{
+
+    //TODO use redis here
     let props = await getProperties(req.body.place);
+
     res.json(props);
  });
 
+
+
+
+ router.post("/search/weather",async (req,res,next)=>{
+    let weather = await getWeather(req.body.place);
+    res.json({weather});
+ });
 
  module.exports = router;

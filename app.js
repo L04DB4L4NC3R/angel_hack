@@ -19,9 +19,10 @@ app.use(require("morgan")('dev'));
 
 app.use('/seller',require("./routes/seller"));
 app.post("/",(req,res,next)=>{
-    res.json([{message:`Hello ${req.body.name} your age is ${req.body.age}`}]);
+    console.log(req.body);
+    res.json({message:`Hello ${req.body.name} your age is ${req.body.age}`});
 });
-app.use("/user",require("./routes/user"));
+app.use("/geo",require("./routes/geo"));
 // Routes
 
 
