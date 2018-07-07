@@ -9,5 +9,5 @@
 | ------------ |:------------:|:----------:|
 | /seller/add  | POST seller object type  | seller object type |
 | /seller/fetch | GET | gets an array of coordinates- {points:[ {lat:Number,lng:Number},.. ]} |
-| /user/search/weather | POST {place:String} | response shown in weather.md |
-| /user/search/place | POST {place:String} | response shown in place.md |
+| /user/search/weather/{place} | GET place | response shown in weather.md |
+| /user/search/place/{place}| GET place| response shown in place.md |

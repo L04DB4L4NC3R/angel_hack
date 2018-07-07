@@ -19,15 +19,12 @@ const {
     contact:String,
     email:String,
 
-    data:{
-        location:{
-        lat:Number,
-        lng:Number
-        },
-        description:String
-        address:String
-    
- * }
+    location:{
+    lat:Number,
+    lng:Number
+    },
+    description:String
+    address:String
  */
 
 
@@ -40,7 +37,11 @@ router.post("/add",async (req,res,next)=>{
        let newProp = await createProperty(req.body);
        res.json([newProp]);
    } else{
-       let dataa = await updateProperty({name:req.body.name},{$push:{property:req.body.data}});
+       let dataa = await updateProperty({name:req.body.name},{$push:{property:{
+           location:req.body.location,
+           description:req.body.description,
+           address:req.body.address
+       }}});
        res.json([dataa]);
    }
 
