@@ -24,7 +24,9 @@ const {
 
  router.post("/search",async (req,res,next)=>{
     let props = await getProperties(req.body.place);
-    res.json(props);
+    
+
+    res.json(props.points);
  });
 
 

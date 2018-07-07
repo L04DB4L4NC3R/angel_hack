@@ -16,11 +16,23 @@ request("https://api.nestoria.in/api?encoding=json&pretty=1&action=search_listin
   var arr=[];
   for(var prop of data.response.listings)
       arr.push({name:prop.keywords,contact:"",email:"",location:{lat:prop.latitude,long:prop.longitude},description:prop.summary,address:prop.title});
-  console.log(data)
-      resolve(arr);
+  let locs = [];
+  for(prop of arr)
+      locs.push(prop.location);
+      resolve({data:arr,points:locs});
 })
 .catch((err)=>reject(err));
 
 });
 }
 
+
+
+
+module.exports.weather = (place)=>{
+  return new Promise((resolve,reject)=>{
+    request("http://samples.openweathermap.org/data/2.5/history/city?q="+place+"&appid=b1b15e88fa797225412429c1c50c122a1")
+    .then(d=>resolve(d))
+    .catch(err=>reject(err));
+  });
+}
