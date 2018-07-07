@@ -3,7 +3,7 @@ const util=require('util');
 request=util.promisify(request);
 
 
-exports.getProperties =  (place)=>{
+module.exports.getProperties =  (place)=>{
 return new Promise((resolve,reject)=>{
 
 //fetching properties
@@ -11,12 +11,13 @@ return new Promise((resolve,reject)=>{
 request("https://api.nestoria.in/api?encoding=json&pretty=1&action=search_listings&country=in&listing_type=buy&place_name="+place+"&number_of_results=5")
 
 .then((res)=>{
+
   var data=JSON.parse(res.body);
   var arr=[];
   for(var prop of data.response.listings)
-
-  arr.push({name:prop.keywords,contact:"",email:"",location:{lat:prop.latitude,long:prop.longitude},description:prop.summary,address:prop.title});
-  resolve(arr);
+      arr.push({name:prop.keywords,contact:"",email:"",location:{lat:prop.latitude,long:prop.longitude},description:prop.summary,address:prop.title});
+  console.log(data)
+      resolve(arr);
 })
 .catch((err)=>reject(err));
 

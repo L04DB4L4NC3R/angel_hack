@@ -23,9 +23,8 @@ const {
  */
 
  router.post("/search",async (req,res,next)=>{
-    let props = await getProperties(req.place);
-    console.log(props);
-    res.json([props]);
+    let props = await getProperties(req.body.place);
+    res.json(props);
  });
 
 
