@@ -41,6 +41,9 @@ const {
                 .catch(next);
             } else{
                 let arr = createBlock(req.body,new Date.getTime()/1000,data[data.length-1]);
+
+                if(!validateChain(arr,data[data.length-1]))
+                    return res.json({message:"Error validating blockchain"});
                 bl.updateSheet(auth,[arr])
                 .then((c)=>res.json(arr))
                 .catch(next);
