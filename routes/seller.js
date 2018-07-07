@@ -48,4 +48,20 @@ router.post("/add",async (req,res,next)=>{
 
 
 
+
+/**
+ * @description Get all pts
+ */
+router.get("/fetch",async (req,res,next)=>{
+    
+    let arr = await getProperty({});
+    var points = [];
+    for(i of arr){
+        for(j of i.property)
+            points.push(j.location);
+    }
+    res.json({points});
+
+})
+
 module.exports = router;

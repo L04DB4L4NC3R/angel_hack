@@ -28,7 +28,7 @@ exports.createProperty = (data)=>{
                contact:data.contact,
                email:data.email,
                property:[data.data]
-        })
+        });
 
         obj.save()
         .then(d=>resolve(d))
