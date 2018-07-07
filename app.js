@@ -17,7 +17,7 @@ app.use(require("morgan")('dev'));
 
 // Routes
 
-app.use('seller',require("./routes/seller"));
+app.use('/seller',require("./routes/seller"));
 
 // Routes
 

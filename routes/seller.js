@@ -35,12 +35,15 @@ const {
 
 router.post("/add",async (req,res,next)=>{
    let seller = getProperty({name:req.body.name});
-   if(seller.length < 1){
-       let newProp = createProperty(req.body);
+   
+    if(!seller){
+       let newProp = await createProperty(req.body);
        res.json(newProp);
    } else{
-       updateProperty({name:req.body.name},{$push:{property:req.body.data}});
+       let dataa = await updateProperty({name:req.body.name},{$push:{property:req.body.data}});
+       res.json(dataa);
    }
+
 });
 
 

@@ -22,7 +22,15 @@ const seller_model = mongoose.model("seller",seller_schema);
 
 exports.createProperty = (data)=>{
     return new Promise((resolve,reject)=>{
-        seller_model.create(data)
+
+        var obj = new seller_model({
+                name:data.name,
+               contact:data.contact,
+               email:data.email,
+               property:[data.data]
+        })
+
+        obj.save()
         .then(d=>resolve(d))
         .catch(err=>reject(err))
     });
