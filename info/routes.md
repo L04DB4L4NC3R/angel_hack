@@ -14,3 +14,5 @@
 | /seller/upload/files/{username} | POST {files:Array of files} | filedata JSON (see files.md) |
 | /seller/upload/delete/{username} | GET | {message:"Deleted"} |
 | /geo/both/{place} | GET | {place:[seller object type],weather:Weather Object type} |
+| /blockchain/blocks | GET | Gets all blockchain objects. see blockchain.md |
+| /blockchain/transact | POST Seller object type with user instead of img | blockchain object |
