@@ -4,18 +4,17 @@
 <br />
 
 ```
-{
+ {
     name:String,
     contact:String,
     email:String,
-    
-    property:[{
+
+    data:{
         location:{
-            lat:Number,
-            lng:Number
+        lat:Number,
+        lng:Number
         },
-        description:String,
+        description:String
         address:String
-    }]
-}
+    }
 ```

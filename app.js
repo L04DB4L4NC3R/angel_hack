@@ -15,6 +15,14 @@ app.use(bp.urlencoded({extended:false}));
 app.use(require("morgan")('dev'));
 
 
+// Routes
+
+app.use('seller',require("./routes/seller"));
+
+// Routes
+
+
+
 app.use((err,req,res,next)=>{
     res.json({
         message:"Some error occurred",
