@@ -12,7 +12,8 @@ const seller_schema = new mongoose.Schema({
         },
         description:String,
         address:String
-    }]
+    }],
+    image:String
 });
 
 const seller_model = mongoose.model("seller",seller_schema);
@@ -31,7 +32,8 @@ exports.createProperty = (data)=>{
                    location:data.location,
                    description:data.description,
                    address:data.address
-               }]
+               }],
+               image:''
         });
 
         obj.save()

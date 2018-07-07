@@ -14,7 +14,8 @@
     lng:Number
     },
     description:String
-    address:String
+    address:String,
+    image:String
   }
 
 

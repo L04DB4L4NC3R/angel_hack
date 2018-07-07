@@ -73,13 +73,22 @@ in the blockchain
 
 * Google maps 
 
-* Google geolocation
-
 * Real estate API
-
-* Govt of india soil fertility
 
 * Govt of india weather
 
-* Govt of india air pollution 
+* Google sheets API
+
+<br />
+
+## Cloud services:
+---
+
+<br />
+
+* mlab for mongoDB
+
+* redis labs for redis
+
+* heroku for backend
 
