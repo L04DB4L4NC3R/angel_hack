@@ -48,7 +48,7 @@ const {
 
  router.get("/search/weather/:place",async (req,res,next)=>{
     let weather = await getWeather(req.params.place);
-    res.json([{weather}]);
+    res.json({weather});
  });
 
  module.exports = router;
