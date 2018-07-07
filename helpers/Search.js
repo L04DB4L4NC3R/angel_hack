@@ -15,6 +15,7 @@ request("https://api.nestoria.in/api?encoding=json&pretty=1&action=search_listin
   var data=JSON.parse(res.body);
   var arr=[];
   for(var prop of data.response.listings)
+      console.log(props);
       arr.push({name:prop.keywords,contact:"",email:"",location:{lat:prop.latitude,long:prop.longitude},description:prop.summary,address:prop.title});
     resolve(arr);
 })
