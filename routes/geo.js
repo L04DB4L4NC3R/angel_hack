@@ -39,6 +39,7 @@ const {
 //   }
 //   //TODO  to use hmset fucntion to set
 //     client.hmset(req.params.place,arr,(err,result)=>{
+        
         res.json(props);
 //     });
 
