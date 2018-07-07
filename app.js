@@ -3,7 +3,7 @@ const bp = require("body-parser");
 require("dotenv").config();
 
 const mongoose = require("mongoose");
-mongoose.connect(process.env.MONGO_URL);
+mongoose.connect(process.env.MONGO_URL,{ useNewUrlParser: true });
 mongoose.connection
 .once("open",()=>console.log("Connection open"))
 .catch(err=>console.log(err));
@@ -23,6 +23,7 @@ app.post("/",(req,res,next)=>{
     res.json({message:`Hello ${req.body.name} your age is ${req.body.age}`});
 });
 app.use("/geo",require("./routes/geo"));
+app.use('/seller',require('./routes/uploading'));
 // Routes
 
 
