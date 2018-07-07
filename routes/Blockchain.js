@@ -54,4 +54,15 @@ const {
 
 
 
+ router.get("/blocks",(req,res,next)=>{
+    authentication.authenticate()
+    .then((auth)=>{
+        bl.readSheet(auth)
+        .then(res.json)
+        .catch(next);
+    }).catch(next);
+ });
+
+
+
  module.exports = router;
