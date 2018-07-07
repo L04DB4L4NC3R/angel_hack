@@ -21,6 +21,7 @@ app.use('/seller',require("./routes/seller"));
 app.post("/",(req,res,next)=>{
     res.json([{message:"Hello"}]);
 });
+app.use("/user",require("./routes/user"));
 // Routes
 
 
