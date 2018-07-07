@@ -29,7 +29,7 @@ const bl=require('../helpers/spreadsheet');
     .then((auth)=>{
         bl.readSheet(auth)
         .then((data)=>{
-
+            res.send(data)
         }).catch(next);
     }).catch(next)
  });
