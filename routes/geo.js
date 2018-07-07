@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const verify=require('../helpers/cache_request');
-////const client=require('../config/redis_config');
+const client=require('../config/redis_config');
 const {
     createProperty,
     getProperty,
