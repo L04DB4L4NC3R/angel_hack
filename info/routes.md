@@ -18,4 +18,4 @@
 | /blockchain/transact | POST Seller object type with user instead of img | blockchain object |
 | /visualize/blocks | GET | Blockchain (see blockchain.md) |
 | /visualize/transact | POST Seller object type with user instead of img | blockchain object |
-| / | GET | Google sheet |
+| /sheet | GET | Google sheet |

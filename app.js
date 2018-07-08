@@ -17,17 +17,26 @@ app.use(bp.json());
 app.use(bp.urlencoded({extended:false}));
 app.use(require("morgan")('dev'));
 
+app.use(express.static('frontend'));
 
 // Routes
 
 app.use('/seller',require("./routes/seller"));
 
-app.get('/',(req,res,next)=>{
+app.get("/",(req,res,next)=>{
+    res.sendFile(__dirname +  "/frontend/index.html");
+});
+
+app.get('/sheet',(req,res,next)=>{
     res.redirect("https://docs.google.com/spreadsheets/d/1e27OIX-r0NyMUkckjPxu9n62DvHSIRE7nEgcW2sZWw0/edit#gid=0");
 })
 app.post("/",(req,res,next)=>{
     console.log(req.body);
     res.json({message:`Hello ${req.body.name} your age is ${req.body.age}`});
+});
+
+app.get("/sheet/upload",(req,res,next)=>{
+    res.send("Your response has been recorded. ")
 });
 
 app.use("/geo",require("./routes/geo"));
