@@ -6,10 +6,10 @@ require('./helpers/spreadsheet.js');
 require("dotenv").config();
 
 const mongoose = require("mongoose");
-mongoose.connect(process.env.MONGO_URL,{ useNewUrlParser: true });
-mongoose.connection
-.once("open",()=>console.log("Connection open"))
-.catch(err=>console.log(err));
+// mongoose.connect(process.env.MONGO_URL,{ useNewUrlParser: true });
+// mongoose.connection
+// .once("open",()=>console.log("Connection open"))
+// .catch(err=>console.log(err));
 
 const app = express();
 
@@ -32,7 +32,7 @@ app.post("/",(req,res,next)=>{
 
 app.use("/geo",require("./routes/geo"));
 app.use('/seller',require('./routes/uploading'));
-app.use("/blockchain",require("./routes/blockchain"));
+app.use("/blockchain",require("./routes/Blockchain"));
 // Routes
 
 

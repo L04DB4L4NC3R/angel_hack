@@ -75,10 +75,6 @@ function updateSheet(auth,values){
     });
 });
 }
-authentication.authenticate().then((auth)=>{
-readSheet(auth).then((arr)=>console.log(arr));
-
-});
 module.exports={
   readSheet,updateSheet,addSheet
 }

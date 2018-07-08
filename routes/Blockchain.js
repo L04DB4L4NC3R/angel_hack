@@ -12,7 +12,7 @@ const {
 
 /**
  * @description body-
- * 
+ *
  * {
         "name": "Builder floor, Garden, Gated Community, Lift, Power Backup, Security",
         "contact": "",
@@ -25,7 +25,7 @@ const {
         "address": "Kalkaji, Guru Ravi Das Marg, Near Dhiman Motor Driving School, G Block, New Delhi",
         "user":String
     }
- * 
+ *
  */
 
 
@@ -34,9 +34,10 @@ const {
     .then((auth)=>{
         bl.readSheet(auth)
         .then((data)=>{
-            if(!data[0].index){
+            if(data["blockchain"][0].index == "INDEX"){
                 let arr = genesisInit();
-                bl.updateSheet(auth,[[arr.name,arr.contact,arr.email,arr.location,arr.description,arr.address,arr.user]])
+                console.log(arr)
+                bl.updateSheet(auth,[[arr.index,arr.timestamp,arr.hash,arr.prevhash,arr.data]])
                 .then(c=>res.json(arr))
                 .catch(next);
             } else{
@@ -44,7 +45,7 @@ const {
 
                 if(!validateChain(arr,data[data.length-1]))
                     return res.json({message:"Error validating blockchain"});
-                bl.updateSheet(auth,[[arr.name,arr.contact,arr.email,arr.location,arr.description,arr.address,arr.user]])
+                bl.updateSheet(auth,[[arr.index,arr.timestamp,arr.hash,arr.prevhash,arr.data]])
                 .then((c)=>res.json(arr))
                 .catch(next);
             }
@@ -62,6 +63,11 @@ const {
         .catch(next);
     }).catch(next);
  });
+
+
+ router.get("/",(req,res,next)=>{
+   res.send(genesisInit())
+ })
 
 
 
