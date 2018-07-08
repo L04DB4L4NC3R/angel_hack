@@ -64,17 +64,25 @@ function updateSheet(auth,values){
       valueInputOption: "USER_ENTERED",
       resource: {
         values: values
-      }
-    }, (err, response) => {
+        }
+    },(err, response) => {
       if (err) {
         reject(err);
         return;
-      } else {
-          resolve('appended to blockchain');
       }
-    });
+      else {
+          resolve('appended to blockchain');
+          }
+      });
 });
 }
+
+// authentication.authenticate()
+// .then((auth)=>{
+//   return updateSheet(auth,[["dfd;f;","fdfkdlk","sdsdsdsd"]])
+// })
+// .then(msg=>console.log(msg))
+// .catch(err=>console.log(err));
 module.exports={
   readSheet,updateSheet,addSheet
 }

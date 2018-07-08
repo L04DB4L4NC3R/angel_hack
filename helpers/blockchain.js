@@ -22,7 +22,7 @@ var calcHash = (index,previousHash,data,timestamp)=>{
 
 
 exports.genesisInit = (data)=>{
-    
+
     return new Block(0,"GENESIS PREVIOUS HASH",Date.now()/1000,calcHash(0,"PH","GD",Date.now()/1000),data)
 }
 
@@ -39,8 +39,6 @@ var createBlock = (data,timestamp,latestBlock)=>{
 
 }
 
-
-
 exports.validateChain = (newBlock,oldBlock)=>{
     if(newBlock.index!=oldBlock.index+1)
         return false;
@@ -50,6 +48,3 @@ exports.validateChain = (newBlock,oldBlock)=>{
         return false;
     return true;
 }
-
-
-

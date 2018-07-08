@@ -38,10 +38,7 @@ app.use("/blockchain",require("./routes/Blockchain"));
 
 
 app.use((err,req,res,next)=>{
-    res.json({
-        message:"Some error occurred",
-        err
-    });
+  res.send(err);
 });
 
 app.listen(process.env.PORT || 3000,()=>console.log("Listening.."));
