@@ -29,7 +29,7 @@ exports.genesisInit = (data)=>{
 
 
 
-var createBlock = (data,timestamp,latestBlock)=>{
+exports.createBlock = (data,timestamp,latestBlock)=>{
 
     let thisIndex = latestBlock.index+1;
 
@@ -41,10 +41,10 @@ var createBlock = (data,timestamp,latestBlock)=>{
 
 exports.validateChain = (newBlock,oldBlock)=>{
     if(newBlock.index!=oldBlock.index+1)
-        return false;
+        return '1';
     if(newBlock.previousHash!=oldBlock.hash)
-        return false;
-    if(calcHash(newBlock.index,newBlock.previousHash,newBlock.timestamp,newBlock.data)!=newBlock.hash)
-        return false;
+        return '2';
+    if(calcHash(newBlock.index,newBlock.previousHash,newBlock.data,newBlock.timestamp)!=newBlock.hash)
+        return '3';
     return true;
 }

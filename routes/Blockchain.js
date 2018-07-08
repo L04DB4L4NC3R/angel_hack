@@ -37,21 +37,18 @@ const {
             if(!data["blockchain"][1]){
 
                 let arr = genesisInit(req.body);
-                console.log(arr);
 
                 bl.updateSheet(auth,[[arr.index,arr.timestamp,arr.hash,arr.previousHash,JSON.stringify(arr.data)]])
                 .then(c=>res.json({c}))
                 .catch(err=>next(err));
             }
             else{
-                let arr = createBlock(req.body,Date.now()/1000,data[data.length-1]);
-                console.log(arr);
-
-                if(!validateChain(arr,data[data.length-1]))
+                var arr = createBlock(req.body,Date.now()/1000,data["blockchain"][data["blockchain"].length-1]);
+                if(!validateChain(arr,data["blockchain"][data["blockchain"].length-1]))
                     return res.json({message:"Error validating blockchain"});
                 bl.updateSheet(auth,[[arr.index,arr.timestamp,arr.hash,arr.previousHash,JSON.stringify(arr.data)]])
                 .then((c)=>res.json({c}))
-                .catch(next);
+                .catch((err)=>next(err));
             }
         }).catch(next);
     }).catch(next)
