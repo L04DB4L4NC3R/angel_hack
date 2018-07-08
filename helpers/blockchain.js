@@ -21,7 +21,7 @@ var calcHash = (index,previousHash,data,timestamp)=>{
 
 
 
-var genesisInit = (data)=>{
+exports.genesisInit = (data)=>{
     
     return new Block(0,"GENESIS PREVIOUS HASH",Date.now()/1000,calcHash(0,"PH","GD",Date.now()/1000),data)
 }

@@ -35,13 +35,12 @@ const {
         bl.readSheet(auth)
         .then((data)=>{
             if(data["blockchain"][0].index == "INDEX"){
-                let arr = genesisInit();
-                console.log(arr)
+                let arr = genesisInit(req.body);
                 bl.updateSheet(auth,[[arr.index,arr.timestamp,arr.hash,arr.prevhash,arr.data]])
                 .then(c=>res.json(arr))
                 .catch(next);
             } else{
-                let arr = createBlock(req.body,new Date.getTime()/1000,data[data.length-1]);
+                let arr = createBlock(req.body,Date.now()/1000,data[data.length-1]);
 
                 if(!validateChain(arr,data[data.length-1]))
                     return res.json({message:"Error validating blockchain"});
