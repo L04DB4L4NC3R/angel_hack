@@ -29,7 +29,7 @@ exports.genesisInit = (data)=>{
 
 
 
-var createBlock = (data,timestamp,latestBlock)=>{
+exports.createBlock = (data,timestamp,latestBlock)=>{
 
     let thisIndex = latestBlock.index+1;
 
