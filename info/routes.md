@@ -16,3 +16,5 @@
 | /geo/both/{place} | GET | {place:[seller object type],weather:Weather Object type} |
 | /blockchain/blocks | GET | Gets all blockchain objects. see blockchain.md |
 | /blockchain/transact | POST Seller object type with user instead of img | blockchain object |
+| /visualize/blocks | GET | Blockchain (see blockchain.md) |
+| /visualize/transact | POST Seller object type with user instead of img | blockchain object |
