@@ -14,15 +14,16 @@ class Block{
 
 
 var calcHash = (index,previousHash,data,timestamp)=>{
-    return crypto.createHmac('sha256',parseInt(process.env.SALT) )
+    return crypto.createHmac('sha256',"10")
     .update(index.toString()+previousHash+timestamp+data)
     .digest('hex');
 }
 
 
 
-exports.genesisInit = ()=>{
-    return new Block(0,"GENESIS PREVIOUS HASH",new Date.getTime()/1000,calcHash(0,"PH","GD",new Date.getTime()/1000),"GD")
+var genesisInit = (data)=>{
+    
+    return new Block(0,"GENESIS PREVIOUS HASH",Date.now()/1000,calcHash(0,"PH","GD",Date.now()/1000),data)
 }
 
 
@@ -49,3 +50,5 @@ exports.validateChain = (newBlock,oldBlock)=>{
         return false;
     return true;
 }
+
+
