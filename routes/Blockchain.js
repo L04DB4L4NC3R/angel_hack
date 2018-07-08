@@ -34,6 +34,7 @@ const {
     .then((auth)=>{
         bl.readSheet(auth)
         .then((data)=>{
+            console.log(data);
             if(!data["blockchain"][1]){
 
                 let arr = genesisInit(req.body);
