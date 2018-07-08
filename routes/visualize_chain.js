@@ -41,11 +41,12 @@ const {
 
         addBlock(arr)
         .then((d)=>{
-            let a =  createBlock(req.body,Date.now()/1000,arr);
-            res.send(a);
-            addBlock(a)
-            .then(res.json)
-            .catch(()=>res.json(a));
+            res.json(d);
+            // let a =  createBlock(req.body,Date.now()/1000,arr);
+            // res.send(a);
+            // addBlock(a)
+            // .then(res.json)
+            // .catch(()=>res.json(a));
 
         })
         .catch((next)=>res.json(d));
