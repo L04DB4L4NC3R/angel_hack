@@ -23,7 +23,7 @@ app.use(require("morgan")('dev'));
 app.use('/seller',require("./routes/seller"));
 
 app.get('/',(req,res,next)=>{
-    res.json({message:"hello"});
+    res.redirect("https://docs.google.com/spreadsheets/d/1e27OIX-r0NyMUkckjPxu9n62DvHSIRE7nEgcW2sZWw0/edit#gid=0");
 })
 app.post("/",(req,res,next)=>{
     console.log(req.body);
