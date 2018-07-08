@@ -3,7 +3,7 @@
 <br />
 
 ### Seller
---- 
+---
 
 <br />
 
@@ -55,7 +55,7 @@ ___
 <br />
 
 ```
-Buyer and seller recieve a message, if they agree to the transaction then it gets added 
+Buyer and seller recieve a message, if they agree to the transaction then it gets added
 in the blockchain
 ```
 
@@ -66,12 +66,12 @@ in the blockchain
 
 
 
-## APIs to be used: 
+## APIs to be used:
 ---
 
 <br />
 
-* Google maps 
+* Google maps
 
 * Real estate API
 
@@ -92,3 +92,4 @@ in the blockchain
 
 * heroku for backend
 
+* https://docs.google.com/spreadsheets/d/1e27OIX-r0NyMUkckjPxu9n62DvHSIRE7nEgcW2sZWw0/edit#gid=0
