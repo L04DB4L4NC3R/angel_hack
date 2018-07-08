@@ -33,17 +33,33 @@ const {
  router.post("/transact",async (req,res,next)=>{
     
     let chain = await getBlock({});
+    console.log(chain)
+    console.log(chain.length)
+    if(chain.length == 0){
 
-    if(chain.length>=1){
+        let arr = genesisInit(req.body);
+
+        addBlock(arr)
+        .then((d)=>{
+            let a =  createBlock(req.body,Date.now()/1000,arr);
+            res.send(a);
+            addBlock(a)
+            .then(res.json)
+            .catch(()=>res.json(a));
+
+        })
+        .catch((next)=>res.json(d));
+      
+    
+    } else{
         let arr =  createBlock(req.body,Date.now()/1000,chain[chain.length-1]);
 
         if(!validateChain(arr,chain[chain.length-1]))
             return res.json({message:"Error validating blockchain"});
-        res.send(arr)
-    
-    } else{
-        let arr = genesisInit(req.body);
-        res.send(arr);
+        
+        addBlock(arr)
+        .then(res.json)
+        .catch(err=>res.json(arr));
     }
      
  });

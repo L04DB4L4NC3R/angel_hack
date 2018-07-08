@@ -39,10 +39,7 @@ app.use("/visualize",require("./routes/visualize_chain"));
 
 
 app.use((err,req,res,next)=>{
-    res.json({
-        message:"Some error occurred",
-        err
-    });
+    res.json({err});
 });
 
 app.listen(process.env.PORT || 3000,()=>console.log("Listening.."));
