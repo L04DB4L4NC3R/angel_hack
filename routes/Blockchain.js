@@ -38,7 +38,7 @@ const {
             if(!data["blockchain"][1]){
 
                 let arr = genesisInit(req.body);
-
+                //updating sheet 
                 bl.updateSheet(auth,[[arr.index,arr.timestamp,arr.hash,arr.previousHash,JSON.stringify(arr.data)]])
                 .then(c=>res.json({c}))
                 .catch(err=>next(err));

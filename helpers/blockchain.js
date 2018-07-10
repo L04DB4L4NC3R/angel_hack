@@ -13,6 +13,7 @@ class Block{
 
 
 
+
 var calcHash = (index,previousHash,data,timestamp)=>{
     return crypto.createHmac('sha256',"10")
     .update(index.toString()+previousHash+timestamp+data)
