@@ -11,9 +11,22 @@ const {
 
 
 /**
- * @description body-
+ * @api {POST} /blockchain/transact
+ * @apiName Transact
+ * @apiDescription blockchain transaction 
+ * @apiParam {String} name type of building 
+ * @apiParam {String} contact details of the person
+ * @apiParam {String} email email of the person
+ * @apiParam {Object} Location Location of the person
+ * @apiParam {Number} location.latitude latitude of the property
+ * @apiParam {Number} location.longitude latitude of the property
+ * @apiParam {String} address Address of the property
+ * @apiParam {String} description description of the property
+ * 
+ * @apiParamExample {json} Request-Example
  *
- * {
+ *
+ *{
         "name": "Builder floor, Garden, Gated Community, Lift, Power Backup, Security",
         "contact": "",
         "email": "",
@@ -25,7 +38,7 @@ const {
         "address": "Kalkaji, Guru Ravi Das Marg, Near Dhiman Motor Driving School, G Block, New Delhi",
         "user":String
     }
- *
+ *@apiSuccess {String} c message    
  */
 
 
@@ -54,7 +67,6 @@ const {
         }).catch(next);
     }).catch(next)
  });
-
 
 
  router.get("/blocks",(req,res,next)=>{

@@ -18,7 +18,8 @@ app.use(bp.urlencoded({extended:false}));
 app.use(require("morgan")('dev'));
 
 app.use(express.static('frontend'));
-
+app.use('/doc',express.static('doc'));
+app.set('views','./doc');
 // Routes
 
 app.use('/seller',require("./routes/seller"));
@@ -35,6 +36,7 @@ app.post("/",(req,res,next)=>{
     res.json({message:`Hello ${req.body.name} your age is ${req.body.age}`});
 });
 
+
 app.get("/sheet/upload",(req,res,next)=>{
     res.send("Your response has been recorded. ")
 });
@@ -44,6 +46,7 @@ app.use('/seller',require('./routes/uploading'));
 app.use("/blockchain",require("./routes/Blockchain"));
 app.use("/visualize",require("./routes/visualize_chain"));
 // Routes
+
 
 
 

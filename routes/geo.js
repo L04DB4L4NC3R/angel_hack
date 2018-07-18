@@ -17,6 +17,7 @@ const {
 
 
 /**
+ * 
  * @description post to get data of available properties in a place and their data
  *
  * {
