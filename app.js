@@ -19,7 +19,6 @@ app.use(require("morgan")('dev'));
 
 app.use(express.static('frontend'));
 app.use('/doc',express.static('doc'));
-app.set('views','./doc');
 // Routes
 
 app.use('/seller',require("./routes/seller"));
